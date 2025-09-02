@@ -54,4 +54,31 @@ def api_add_workout():
     """API endpoint to add a new workout"""
     data = request.get_json()
     
-    if not data or 'n
+    if not data or 'name' not in data or 'duration' not in data:
+        return jsonify({'error': 'Missing required fields: name and duration'}), 400
+    
+    try:
+        duration = int(data['duration'])
+        if duration <= 0:
+            raise ValueError("Duration must be positive")
+        
+        workout = Workout(data['name'], duration)
+        workouts_storage.append(workout)
+        return jsonify({
+            'message': 'Workout added successfully', 
+            'workout': workout.to_dict()
+        }), 201
+    
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
+
+@main.route('/api/workouts/count')
+def api_workout_count():
+    """API endpoint to get total workout count"""
+    return jsonify({'count': len(workouts_storage)})
+
+@main.route('/api/workouts/total-duration')
+def api_total_duration():
+    """API endpoint to get total workout duration"""
+    total_duration = sum(workout.duration for workout in workouts_storage)
+    return jsonify({'total_duration': total_duration})
