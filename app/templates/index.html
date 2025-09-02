@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Home - ACEest Fitness and Gym{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">
+            <i class="fas fa-dumbbell me-3"></i>Welcome to ACEest Fitness
+        </h1>
+        <p class="lead mb-4">Your premier destination for fitness tracking and gym management</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <p class="fs-5">Track your workouts, monitor your progress, and achieve your fitness goals with our comprehensive gym management system.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <i class="fas fa-plus-circle fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Add Workouts</h5>
+                    <p class="card-text">Easily log your workout sessions with duration tracking and detailed information.</p>
+                    <a href="{{ url_for('main.add_workout') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Add Workout
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <i class="fas fa-chart-line fa-3x text-success"></i>
+                    </div>
+                    <h5 class="card-title">Track Progress</h5>
+                    <p class="card-text">View your complete workout history and monitor your fitness journey over time.</p>
+                    <a href="{{ url_for('main.view_workouts') }}" class="btn btn-success">
+                        <i class="fas fa-list me-2"></i>View Workouts
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <i class="fas fa-trophy fa-3x text-warning"></i>
+                    </div>
+                    <h5 class="card-title">Achieve Goals</h5>
+                    <p class="card-text">Set and reach your fitness milestones with our comprehensive tracking system.</p>
+                    <button class="btn btn-warning" disabled>
+                        <i class="fas fa-star me-2"></i>Coming Soon
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Section -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-info-circle me-2"></i>About ACEest Fitness System
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="card-text">
+                                Our fitness tracking system is designed to help gym members and fitness enthusiasts 
+                                keep track of their workout routines, monitor progress, and stay motivated on their 
+                                fitness journey.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-check me-2 text-success"></i>Features:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Workout logging</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Duration tracking</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Progress monitoring</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Simple & intuitive interface</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- API Information -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-info">
+                <div class="card-body">
+                    <h6 class="card-title text-info">
+                        <i class="fas fa-code me-2"></i>Developer API Endpoints
+                    </h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <small class="text-muted">
+                                <strong>GET /api/workouts</strong><br>
+                                Retrieve all workouts
+                            </small>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted">
+                                <strong>POST /api/workouts</strong><br>
+                                Add new workout
+                            </small>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted">
+                                <strong>GET /api/workouts/count</strong><br>
+                                Get total workout count
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
