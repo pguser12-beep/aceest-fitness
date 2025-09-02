@@ -1,5 +1,9 @@
 name: CI/CD Pipeline for ACEest Fitness Flask App
 
+permissions:
+  security-events: write
+  contents: read
+
 on:
   push:
     branches: [ master]
@@ -34,7 +38,7 @@ jobs:
     - name: Test Flask app startup
       run: |
         timeout 10s python app.py &
-        sleep 5
+        sleep 15
         curl -f http://localhost:5000 || exit 1
 
   build-and-push:
